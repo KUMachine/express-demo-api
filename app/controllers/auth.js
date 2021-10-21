@@ -7,8 +7,7 @@ const login = async (req, res, next) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email, password });
     if (!user) {
-      res.statusCode = 404;
-      return res.json({ error: "invalid username or password" });
+      return res.status(400).json({ error: "invalid username or password" });
     }
 
     const token = jwt.sign(

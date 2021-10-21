@@ -1,13 +1,6 @@
-const express = require("express");
 const Article = require("../models/Article");
-const useAuth = require("../../utils/useAuth");
 
 async function all(req, res, next) {
-  console.log(req.user);
-  const user = useAuth(req);
-  if (!user) {
-    return res.status(401).json({ error: "not authorized" });
-  }
   const articles = await Article.find();
   res.send(articles);
 }
@@ -16,10 +9,6 @@ async function one(req, res, next) {
   res.send(user);
 }
 async function create(req, res, next) {
-  const user = useAuth(req);
-  if (!user) {
-    return res.status(401).json({ error: "not authorized" });
-  }
   const { title, description } = req.body;
   const article = new Article({
     title,

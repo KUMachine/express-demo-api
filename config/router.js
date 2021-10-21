@@ -8,15 +8,11 @@ module.exports = function (app) {
   app.post("/api/users/", user.create);
   app.delete("/api/users/:userId", user.remove);
 
-  app.get("/api/articles", auth.isAuthorized, articles.all);
+  app.get("/api/articles", articles.all);
   app.get("/api/articles/:articleId", articles.one);
-  app.post("/api/articles/", articles.create);
-  app.delete("/api/articles/:articleId", articles.remove);
+  app.post("/api/articles/", auth.isAuthorized, articles.create);
+  app.delete("/api/articles/:articleId", auth.isAuthorized, articles.remove);
 
   app.post("/api/login", auth.login);
   app.post("/api/signup", auth.signup);
-
-  // app.get("/", (req, res) => {
-  //   res.render("./index.ejs", { document: "the index page here..." });
-  // });
 };

@@ -1,11 +1,6 @@
 const User = require("../models/User");
-const useAuth = require("../../utils/useAuth");
 
 const all = async (req, res) => {
-  const user = useAuth(req);
-  if (!user) {
-    return res.status(401).json({ error: "not authorized" });
-  }
   const users = await User.find();
   res.send(users);
 };

@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://localhost:27017/acmedb", { useNewUrlParser: true })
+  .connect("mongodb://localhost:27017/demodb", { useNewUrlParser: true })
   .then(() => {
     const app = express();
 
@@ -12,7 +12,6 @@ mongoose
     app.use(express.urlencoded({ extended: false }));
     app.use(cookieParser());
     app.use(express.static(path.join(__dirname, "public")));
-    app.set("view engine", "ejs");
 
     const port = process.env.PORT || "3000";
 
