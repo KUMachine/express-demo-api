@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title><%= document? "doki": "none" %></title>
+  </head>
+  <body>
+    <div
+      class="
+        font-mono
+        h-screen
+        bg-white
+        flex flex-col
+        space-y-10
+        justify-center
+        items-center
+      "
+    >
+      <div class="bg-purple-200 w-96 rounded p-5">
+        <h1 class="text-3xl font-medium">Login</h1>
+        <p class="text-sm">enter your login info:</p>
+
+        <form class="space-y-5 mt-5" action="/login" method="post">
+          <input
+            type="text"
+            name="email"
+            class="w-full h-12 border border-gray-800 rounded px-3"
+            placeholder="Email"
+          />
+          <input
+            type="password"
+            name="password"
+            class="w-full h-12 border border-gray-800 rounded px-3"
+            placeholder="Password"
+          />
+          <button
+            class="
+              text-center
+              w-full
+              bg-blue-900
+              rounded-md
+              text-white
+              py-3
+              font-medium
+            "
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
