@@ -1,9 +1,14 @@
 const Article = require("../models/Article");
 
+/**
+ * these are the controllers for the Article model
+ */
+
 async function all(req, res, next) {
   const articles = await Article.find();
   res.send(articles);
 }
+
 async function one(req, res, next) {
   const article = await Article.findOne()
     .where("_id")
@@ -13,6 +18,7 @@ async function one(req, res, next) {
 
   res.send(article);
 }
+
 async function create(req, res, next) {
   const { title, description } = req.body;
   const article = new Article({

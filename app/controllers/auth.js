@@ -1,6 +1,10 @@
-const express = require("express");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+
+/**
+ *  login controller checks for the valid login
+ *  if the user is valid it sets up a cookie and returns jwt token as well
+ */
 
 const login = async (req, res, next) => {
   try {
@@ -39,6 +43,14 @@ const signup = async (req, res) => {
   await user.save();
   res.json(user);
 };
+
+/**
+ * isAuthorized middleware is responsible for checking for authenticated user
+ * first it looks for the jwt token in the Authorization header if it's not existed
+ * then it looks for the cookie
+ * if one of the Authorization header or the cookie existed and valid
+ * the middle ware allow the request to access the protected route
+ */
 
 const isAuthorized = async (req, res, next) => {
   const token = req.headers.authorization || req.cookies["demo-auth"];

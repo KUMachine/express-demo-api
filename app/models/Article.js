@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// defalut valus are used because there is no validation used in this project
 const schema = mongoose.Schema({
   title: {
     type: String,

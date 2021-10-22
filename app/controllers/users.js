@@ -1,5 +1,8 @@
 const User = require("../models/User");
 
+/**
+ * these are the controllers for the User model
+ */
 const all = async (req, res) => {
   const users = await User.find();
   res.json(users);
