@@ -3,21 +3,19 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 
-mongoose
-  .connect("mongodb://localhost:27017/demodb", { useNewUrlParser: true })
-  .then(() => {
-    const app = express();
+const { PORT, DB_URL } = require("./config/env/development");
 
-    app.use(express.json());
-    app.use(express.urlencoded({ extended: false }));
-    app.use(cookieParser());
-    app.use(express.static(path.join(__dirname, "public")));
+mongoose.connect(DB_URL, { useNewUrlParser: true }).then(() => {
+  const app = express();
 
-    const PORT = process.env.PORT || "3000";
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
+  app.use(cookieParser());
+  app.use(express.static(path.join(__dirname, "public")));
 
-    require("./config/router")(app);
+  require("./config/router")(app);
 
-    app.listen(PORT, () => {
-      console.log(`Express-demo-app listening at http://localhost:${PORT}`);
-    });
+  app.listen(PORT, () => {
+    console.log(`Express-demo-app listening at http://localhost:${PORT}`);
   });
+});
