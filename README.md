@@ -60,7 +60,7 @@ DELETE /api/users/:userId   #(auth required)
 ### Article Routes
 
 ```url
-GET /api/articles gets list of all users
+GET /api/articles
 GET /api/articles/:articleId
 POST /api/articles              #(auth required)
 PUT /api/articles/:articleId    #(auth required)
