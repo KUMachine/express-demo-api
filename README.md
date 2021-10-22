@@ -1,6 +1,6 @@
 # Express API Demo
 
-Simple Express API, built with MongoDB/Mongoose, JsonWebToken
+Simple Express API, built with MongoDB/Mongoose
 
 ## Installation
 
@@ -84,13 +84,13 @@ isAuthorized
 
 ## About
 
-This app contains User and Article models, you can signup through _/api/signup_ to create a user, and login through _/api/login_ to post new articles.
+This app contains User and Article models, you can signup through _/api/signup_ to create a user, and login through _/api/login_ to authenticate and post new articles.
 when you _login_ the api does two things:
 
 - returns JWT token
 - automaticaly creates a cookie with the same token
 
-the cookie will help you authenticate your subsequent requests if you are in a browser or any other tools like post man, however you can use the token to authenticate by sending the token through Authorization http header if you are not using cookies.
+the cookie will help you authenticate your subsequent requests if you are in a browser or any other tools like Postman, however you can use the token to authenticate by sending the token through Authorization http header if you are not using cookies.
 
 ## License
 
