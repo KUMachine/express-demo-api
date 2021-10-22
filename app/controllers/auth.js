@@ -16,7 +16,6 @@ const login = async (req, res, next) => {
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
-        password: user.password,
       }),
       process.env.JWT_PRIVATE_KEY || "super_secret_private_key"
     );

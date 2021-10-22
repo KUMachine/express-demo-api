@@ -11,7 +11,6 @@ const schema = mongoose.Schema({
   },
   authorId: {
     type: mongoose.ObjectId,
-    default: "61709163a87b3ae538a323a5",
   },
   createdAt: {
     type: Date,

@@ -13,11 +13,11 @@ mongoose
     app.use(cookieParser());
     app.use(express.static(path.join(__dirname, "public")));
 
-    const port = process.env.PORT || "3000";
+    const PORT = process.env.PORT || "3000";
 
     require("./config/router")(app);
 
-    app.listen(port, () => {
-      console.log(`Express-demo-app listening at http://localhost:${port}`);
+    app.listen(PORT, () => {
+      console.log(`Express-demo-app listening at http://localhost:${PORT}`);
     });
   });
