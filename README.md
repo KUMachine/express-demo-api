@@ -44,7 +44,7 @@ when the server is running you can request this endpoints
 
 **NOTE**
 
-This API has no front-end, so you can only access it through http requests, tools like Postman is prefered to use.
+This app has no front-end, so you can only access it through http requests, tools like Postman is prefered to use.
 
 ### User Routes
 
